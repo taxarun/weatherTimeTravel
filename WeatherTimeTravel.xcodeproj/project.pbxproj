@@ -17,6 +17,9 @@
 		E13756DD254F38CF00F13535 /* ImmediatePickView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13756DC254F38CF00F13535 /* ImmediatePickView.swift */; };
 		E13756E2254F44DC00F13535 /* ImmediatePickViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13756E1254F44DC00F13535 /* ImmediatePickViewCell.swift */; };
 		E13756E825500C1D00F13535 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = E13756E725500C1D00F13535 /* RxSwift */; };
+		E1804B942552FDCA00A8325E /* LocationSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1804B932552FDCA00A8325E /* LocationSelectionViewController.swift */; };
+		E1804B992552FE2800A8325E /* DetailControllerProviderInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1804B982552FE2800A8325E /* DetailControllerProviderInterface.swift */; };
+		E1804B9E255302DB00A8325E /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1804B9D255302DB00A8325E /* Router.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +56,9 @@
 		E13756D5254F35AE00F13535 /* WeatherTimeTravel.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WeatherTimeTravel.entitlements; sourceTree = "<group>"; };
 		E13756DC254F38CF00F13535 /* ImmediatePickView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImmediatePickView.swift; sourceTree = "<group>"; };
 		E13756E1254F44DC00F13535 /* ImmediatePickViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImmediatePickViewCell.swift; sourceTree = "<group>"; };
+		E1804B932552FDCA00A8325E /* LocationSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationSelectionViewController.swift; sourceTree = "<group>"; };
+		E1804B982552FE2800A8325E /* DetailControllerProviderInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailControllerProviderInterface.swift; sourceTree = "<group>"; };
+		E1804B9D255302DB00A8325E /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,7 +112,10 @@
 			children = (
 				E13756D5254F35AE00F13535 /* WeatherTimeTravel.entitlements */,
 				E137569F254F355D00F13535 /* AppDelegate.swift */,
+				E1804B9D255302DB00A8325E /* Router.swift */,
 				E13756A3254F355D00F13535 /* TimeTravelViewController.swift */,
+				E1804B932552FDCA00A8325E /* LocationSelectionViewController.swift */,
+				E1804B982552FE2800A8325E /* DetailControllerProviderInterface.swift */,
 				E13756DC254F38CF00F13535 /* ImmediatePickView.swift */,
 				E13756E1254F44DC00F13535 /* ImmediatePickViewCell.swift */,
 				E13756A5254F355D00F13535 /* Main.storyboard */,
@@ -272,9 +281,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				E13756A4254F355D00F13535 /* TimeTravelViewController.swift in Sources */,
+				E1804B992552FE2800A8325E /* DetailControllerProviderInterface.swift in Sources */,
 				E13756A0254F355D00F13535 /* AppDelegate.swift in Sources */,
+				E1804B9E255302DB00A8325E /* Router.swift in Sources */,
 				E13756DD254F38CF00F13535 /* ImmediatePickView.swift in Sources */,
 				E13756E2254F44DC00F13535 /* ImmediatePickViewCell.swift in Sources */,
+				E1804B942552FDCA00A8325E /* LocationSelectionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -21,11 +21,17 @@ class TimeTravelViewController: UIViewController {
             picker.leftAnchor.constraint(equalTo: self.view.leftAnchor),
         ])
         
-        picker.refresh(elementsNum: 23) { (row) -> String in
+        let elementsCount : UInt = 23
+        
+        picker.refresh(elementsNum: elementsCount) { (row) -> String in
             "Test"
         }
+        
+        _ = picker.currentElement.subscribe(onNext: { [weak self] (index) in
+            UIView.animate(withDuration: 0.2) {
+                self?.view.backgroundColor = UIColor(white: CGFloat(index) / CGFloat(elementsCount), alpha: 1.0)
+            }
+        }, onError: nil, onCompleted: nil, onDisposed: nil)
     }
-
-
 }
 

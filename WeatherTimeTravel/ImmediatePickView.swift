@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RxSwift
 
 class ImmediatePickView: UIView, UITableViewDataSource, UITableViewDelegate {
     
@@ -110,11 +111,14 @@ class ImmediatePickView: UIView, UITableViewDataSource, UITableViewDelegate {
         }
     }
     
+    var _currentElement : UInt = 0
+    
     // MARK: Public
-    public private(set) var currentElement : UInt = 0
+    public private(set) var currentElement : BehaviorSubject<UInt> = BehaviorSubject(value: 0)
     
     public func specifyCurrentElement(currentElement: UInt) {
-        self.currentElement = currentElement
+        _currentElement = currentElement
+        self.currentElement.onNext(currentElement)
         if tableView != nil {
             let newOffset = tableView!.rowHeight * CGFloat(currentElement) - tableView!.contentInset.top
             tableView?.setContentOffset(CGPoint(x: 0.0, y: newOffset), animated: true)
@@ -152,8 +156,9 @@ class ImmediatePickView: UIView, UITableViewDataSource, UITableViewDelegate {
             
             if closestCell != nil {
                 let newCurrent = UInt(closestCell!.frame.origin.y / tableView!.rowHeight)
-                if currentElement != newCurrent {
-                    currentElement = newCurrent
+                if _currentElement != newCurrent {
+                    _currentElement = newCurrent
+                    currentElement.onNext(newCurrent)
                 }
             }
         }
