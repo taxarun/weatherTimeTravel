@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		E13756A0254F355D00F13535 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E137569F254F355D00F13535 /* AppDelegate.swift */; };
 		E13756A4254F355D00F13535 /* TimeTravelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13756A3254F355D00F13535 /* TimeTravelViewController.swift */; };
-		E13756A7254F355D00F13535 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E13756A5254F355D00F13535 /* Main.storyboard */; };
 		E13756A9254F355E00F13535 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E13756A8254F355E00F13535 /* Assets.xcassets */; };
 		E13756AC254F355E00F13535 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E13756AA254F355E00F13535 /* LaunchScreen.storyboard */; };
 		E13756B7254F355E00F13535 /* WeatherTimeTravelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E13756B6254F355E00F13535 /* WeatherTimeTravelTests.swift */; };
@@ -21,6 +20,7 @@
 		E1804B992552FE2800A8325E /* DetailControllerProviderInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1804B982552FE2800A8325E /* DetailControllerProviderInterface.swift */; };
 		E1804B9E255302DB00A8325E /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1804B9D255302DB00A8325E /* Router.swift */; };
 		E1D4C32D2562A1D9006E7FA5 /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D4C32C2562A1D9006E7FA5 /* LocationCell.swift */; };
+		E1D4C3362562A6F1006E7FA5 /* Rain.sks in Resources */ = {isa = PBXBuildFile; fileRef = E1D4C3352562A6F1006E7FA5 /* Rain.sks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,7 +44,6 @@
 		E137569C254F355D00F13535 /* WeatherTimeTravel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherTimeTravel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E137569F254F355D00F13535 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E13756A3254F355D00F13535 /* TimeTravelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeTravelViewController.swift; sourceTree = "<group>"; };
-		E13756A6254F355D00F13535 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E13756A8254F355E00F13535 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E13756AB254F355E00F13535 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E13756AD254F355E00F13535 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -61,6 +60,7 @@
 		E1804B982552FE2800A8325E /* DetailControllerProviderInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailControllerProviderInterface.swift; sourceTree = "<group>"; };
 		E1804B9D255302DB00A8325E /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		E1D4C32C2562A1D9006E7FA5 /* LocationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCell.swift; sourceTree = "<group>"; };
+		E1D4C3352562A6F1006E7FA5 /* Rain.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Rain.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,10 +121,8 @@
 				E1804B982552FE2800A8325E /* DetailControllerProviderInterface.swift */,
 				E13756DC254F38CF00F13535 /* ImmediatePickView.swift */,
 				E13756E1254F44DC00F13535 /* ImmediatePickViewCell.swift */,
-				E13756A5254F355D00F13535 /* Main.storyboard */,
-				E13756A8254F355E00F13535 /* Assets.xcassets */,
-				E13756AA254F355E00F13535 /* LaunchScreen.storyboard */,
 				E13756AD254F355E00F13535 /* Info.plist */,
+				E1D4C3342562A6CD006E7FA5 /* Resources */,
 			);
 			path = WeatherTimeTravel;
 			sourceTree = "<group>";
@@ -145,6 +143,16 @@
 				E13756C3254F355E00F13535 /* Info.plist */,
 			);
 			path = WeatherTimeTravelUITests;
+			sourceTree = "<group>";
+		};
+		E1D4C3342562A6CD006E7FA5 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E13756A8254F355E00F13535 /* Assets.xcassets */,
+				E13756AA254F355E00F13535 /* LaunchScreen.storyboard */,
+				E1D4C3352562A6F1006E7FA5 /* Rain.sks */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,8 +265,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				E13756AC254F355E00F13535 /* LaunchScreen.storyboard in Resources */,
+				E1D4C3362562A6F1006E7FA5 /* Rain.sks in Resources */,
 				E13756A9254F355E00F13535 /* Assets.xcassets in Resources */,
-				E13756A7254F355D00F13535 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -326,14 +334,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		E13756A5254F355D00F13535 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E13756A6254F355D00F13535 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		E13756AA254F355E00F13535 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
