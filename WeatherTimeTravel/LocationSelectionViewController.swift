@@ -14,6 +14,7 @@ class LocationSelectionViewController: UITableViewController, DetailControllerPr
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView.register(LocationCell.self, forCellReuseIdentifier: LocationCell.reuseIdentifier())
         
         // Example on how can detail be changed dynamically
 //        _ = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] (Timer) in
@@ -34,26 +35,22 @@ class LocationSelectionViewController: UITableViewController, DetailControllerPr
     }
     
     // MARK: - Table view data source
-
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return 23
     }
-
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: LocationCell.reuseIdentifier(), for: indexPath)
         return cell
     }
-    */
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        Router.shared.navigateTo(screen: .weatherTimeTravel)
+    }
 
     /*
     // Override to support conditional editing of the table view.

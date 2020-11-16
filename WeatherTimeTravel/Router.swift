@@ -21,22 +21,35 @@ class Router {
         
         var controllerToPresent = self.p_getControllerForNavigation(screen: screen)
         
-        if UIDevice.current.userInterfaceIdiom == .pad, let detailProvider = controllerToPresent as? DetailControllerProviderInterface {
+        if let detailProvider = controllerToPresent as? DetailControllerProviderInterface {
             
             let detailScreenProvider = detailProvider.getDetailNavigationObservable()
             var detailScreen = try? detailScreenProvider.value()
             if detailScreen != nil {
-                let detailController = self.p_getControllerForNavigation(screen: detailScreen!)
-                let splitController = UISplitViewController()
-                splitController.viewControllers = [controllerToPresent, detailController]
-                controllerToPresent = splitController
-                _ = detailScreenProvider.subscribe(onNext: { (newDestination) in
-                    if detailScreen != newDestination {
-                        detailScreen = newDestination
-                        let newDetailController = self.p_getControllerForNavigation(screen: detailScreen!)
-                        splitController.viewControllers[1] = newDetailController
-                    }
-                }, onError: nil, onCompleted: nil, onDisposed: nil)
+                
+                if UIDevice.current.userInterfaceIdiom == .pad {
+                    
+                    let detailController = self.p_getControllerForNavigation(screen: detailScreen!)
+                    let splitController = UISplitViewController()
+                    splitController.viewControllers = [controllerToPresent, detailController]
+                    controllerToPresent = splitController
+                    _ = detailScreenProvider.subscribe(onNext: { (newDestination) in
+                        if detailScreen != newDestination {
+                            detailScreen = newDestination
+                            let newDetailController = self.p_getControllerForNavigation(screen: detailScreen!)
+                            splitController.viewControllers[1] = newDetailController
+                        }
+                    }, onError: nil, onCompleted: nil, onDisposed: nil)
+                    
+                } else {
+                    
+                    let navigation = UINavigationController()
+                    navigation.viewControllers = [controllerToPresent]
+                    controllerToPresent = navigation
+                    
+                }
+                
+                
             }
             
         }
@@ -56,7 +69,24 @@ class Router {
                         topController = split.viewControllers[1]
                     }
                 }
-                topController.present(controllerToPresent, animated: true, completion: nil)
+                
+                var wasPresentedOtherWay = false
+                if let navigation = topController as? UINavigationController {
+                    let realTop = navigation.topViewController
+                    if let topDetailProvider = realTop as? DetailControllerProviderInterface {
+                        let detailScreen = try? topDetailProvider.getDetailNavigationObservable().value()
+                        if detailScreen != nil {
+                            if screen == detailScreen {
+                                navigation.pushViewController(controllerToPresent, animated: true)
+                                wasPresentedOtherWay = true
+                            }
+                        }
+                    }
+                }
+                
+                if wasPresentedOtherWay == false {
+                    topController.present(controllerToPresent, animated: true, completion: nil)
+                }
             }
         }
     }

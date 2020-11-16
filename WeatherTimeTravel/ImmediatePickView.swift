@@ -19,6 +19,9 @@ class ImmediatePickView: UIView, UITableViewDataSource, UITableViewDelegate {
         didSet {
             if let localTable = tableView {
                 self.addSubview(localTable)
+                if #available(iOS 11.0, *) {
+                    localTable.contentInsetAdjustmentBehavior = .never
+                }
                 localTable.dataSource = self
                 localTable.delegate = self
                 localTable.separatorStyle = .none
