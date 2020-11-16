@@ -64,11 +64,6 @@ class Router {
                 while topController.presentedViewController != nil {
                     topController = topController.presentedViewController!
                 }
-                if let split = topController as? UISplitViewController {
-                    if split.viewControllers.count > 1 {
-                        topController = split.viewControllers[1]
-                    }
-                }
                 
                 var wasPresentedOtherWay = false
                 if let navigation = topController as? UINavigationController {
@@ -78,6 +73,17 @@ class Router {
                         if detailScreen != nil {
                             if screen == detailScreen {
                                 navigation.pushViewController(controllerToPresent, animated: true)
+                                wasPresentedOtherWay = true
+                            }
+                        }
+                    }
+                } else if let splitController = topController as? UISplitViewController {
+                    let realTop = splitController.viewControllers.first
+                    if let topDetailProvider = realTop as? DetailControllerProviderInterface {
+                        let detailScreen = try? topDetailProvider.getDetailNavigationObservable().value()
+                        if detailScreen != nil {
+                            if screen == detailScreen {
+                                splitController.viewControllers[1] = controllerToPresent
                                 wasPresentedOtherWay = true
                             }
                         }
